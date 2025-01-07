@@ -91,6 +91,8 @@ print(f"len(trainloader) = {len(trainloader)}", flush=True)
 # حلقه آموزش GAN
 import time
 
+f = open("./log.txt", 'w')
+
 for epoch in range(epochs):
     t = time.time()
     print("-0", flush=True)
@@ -134,22 +136,9 @@ for epoch in range(epochs):
     if (epoch + 1) % 2 == 0:
         print("1", flush=True)
         print(f'Epoch [{epoch+1}/{epochs}], d_loss: {d_loss.item()}, g_loss: {g_loss.item()}')
+        f.write(f'Epoch [{epoch+1}/{epochs}], d_loss: {d_loss.item()}, g_loss: {g_loss.item()}\n')
         # ذخیره تصاویر تولیدی
         print("2", flush=True)
-        """
-        with torch.no_grad():
-            print("3", flush=True)
-            z = torch.randn(64, z_dim)  # تولید نویز برای مولد
-            generated_images = generator(z).detach().cpu()
-            generated_images = generated_images.view(-1, 28, 28)
-            grid = torchvision.utils.make_grid(generated_images, nrow=8, padding=2, normalize=True)  # گرید تصاویر
-            print("4", flush=True)
-            plt.imshow(grid.permute(1, 2, 0))  # نمایش گرید
-            plt.axis('off')  # عدم نمایش محور
-            plt.savefig(f"generated_images/generated_{epoch+1}.png")  # ذخیره تصویر
-            plt.close()
-            print("5", flush=True)
-        """
         with torch.no_grad():
             print("3", flush=True)
             z = torch.randn(64, z_dim)  # تولید نویز برای مولد
@@ -165,9 +154,12 @@ for epoch in range(epochs):
             plt.savefig(f"generated_images/generated_{epoch+1}.png")  # ذخیره تصویر
             plt.close()  # بستن پنجره نمایش
     
-    print("5", flush=True)
+    #print("5", flush=True)
 
-    print("-2", flush=True)
+    #print("-2", flush=True)
     print(time.time() - t)
+    if epoch + 1 == epochs:
+        k = int(input(f'we are in Epoch [{epoch + 1} / {epochs}] do you want to continue k more epochs?(yes: enter the value of k, no: enter 0)'))
+        epoch += k
 
 print("C9", flush=True)
