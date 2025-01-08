@@ -71,6 +71,9 @@ optimizer_d = optim.Adam(discriminator.parameters(), lr=lr, betas=(0.5, 0.999))
 if not os.path.exists('generated_images'):
     os.makedirs('generated_images')
 
+if not os.path.exists('checkpoints'):
+    os.makedirs('checkpoints')
+
 # تابع برای ذخیره وضعیت مدل‌ها
 def save_checkpoint(generator, discriminator, optimizer_g, optimizer_d, epoch):
     checkpoint = {
