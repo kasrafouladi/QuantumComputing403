@@ -1,6 +1,0 @@
-Epoch [2/50], d_loss: 0.04371707886457443, g_loss: 6.500423908233643
-Epoch [4/50], d_loss: 9.295046038459986e-05, g_loss: 10.989307403564453
-Epoch [6/50], d_loss: 100.0, g_loss: 100.0
-Epoch [8/50], d_loss: 100.0, g_loss: 100.0
-Epoch [10/50], d_loss: 100.0, g_loss: 100.0
-Epoch [12/50], d_loss: 100.0, g_loss: 100.0
