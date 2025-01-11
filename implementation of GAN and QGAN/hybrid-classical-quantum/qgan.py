@@ -43,7 +43,7 @@ class Discriminator(nn.Module):
         return self.model(x)
 
 # تنظیمات دستگاه کوانتومی
-n_qubits = 16
+n_qubits = 22
 dev = qml.device("default.qubit", wires=n_qubits)
 
 # تعریف مدار کوانتومی
